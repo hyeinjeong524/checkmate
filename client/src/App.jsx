@@ -1,19 +1,23 @@
 import { useState } from 'react'
 import sparcsLogo from './assets/sparcs.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Calendar from './components/Calendar.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+    <header>
+      <h1>SPARCS 2021</h1>
+    </header>
+
       <p>환경변수 쓰기 - client: { process.env.TEST }</p>
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+          <img src={sparcsLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
+        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
           <img src={sparcsLogo} className="logo react" alt="React logo" />
         </a>
       </div>
@@ -30,8 +34,12 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the days below
       </p>
+    <Calendar />
+    <footer>
+      <p>footer</p>
+    </footer>
     </>
   )
 }
