@@ -9,17 +9,17 @@ function App() {
   return (
     <>
     <header>
-      <h1>SPARCS 2021</h1>
+      <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+          <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
+      </a>
+      
     </header>
-
       <p>환경변수 쓰기 - client: { process.env.TEST }</p>
       <div>
         <a href="https://sparcs.org" target="_blank" rel="noreferrer">
           <img src={sparcsLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
-          <img src={sparcsLogo} className="logo react" alt="React logo" />
-        </a>
+        
       </div>
       <h1>Vite + React</h1>
       <div className="card">

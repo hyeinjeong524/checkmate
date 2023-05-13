@@ -1,8 +1,16 @@
 #root {
-  max-width: 1280px;
+  /* display: flex; */
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  min-width: 100%;
+}
+
+header{
+  background-color: #875608;
+  min-width: 100%;
+  padding:0%;
+  min-height: 80px;
+
 }
 
 .logo {
@@ -28,7 +36,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .toplogo {
     animation: logo-spin infinite 20s linear;
   }
 }
