@@ -1,6 +1,6 @@
 .calendar__button {
     height: 200%;
-    width: 14.286%;
+    width: calc(100%/7);
     text-align: center;
   }
 
@@ -13,4 +13,8 @@
     height: 200%;
     width: 14.286%;
     text-align: center;
+  }
+
+  .calendar{
+    max-width: 500px;
   }
