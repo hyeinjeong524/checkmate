@@ -10,10 +10,18 @@ const OSchemaDefinition = {
         default: false,
     }
 };
+
 const OSchemaOptions = { timestamps: true };
 
 const schema = new mongoose.Schema(OSchemaDefinition, OSchemaOptions);
 
-const DayModel = mongoose.model("day", schema);
+const dayModels = []; //array of models
 
-module.exports = DayModel;
+// Create 31 models and add them to the array
+for (let i = 1; i <= 31; i++) {
+  const modelName = `DayModel${i}`;
+  const model = mongoose.model(modelName, schema);
+  dayModels.push(model);
+}
+
+module.exports = dayModels;
