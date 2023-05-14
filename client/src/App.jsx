@@ -6,41 +6,41 @@ import Calendar from './components/Calendar.jsx'
 function App() {
   const [count, setCount] = useState(0)
 
-  return (  
+  return (
     <>
-    <header>
+      <header>
 
-      <h1>
-        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
-          <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
-      </a>
-      <span className="title">Checkmate</span>
-      </h1>
+        <h1>
+          <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+            <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
+          </a>
+          <span className="title">Checkmate</span>
+        </h1>
 
-    </header>
+      </header>
 
-    <div className="wrapper">
-    <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div className="wrapper">
+        <div className="column column1">
 
-        <p>
-          hehe
+        <p className="read-the-docs">
+          Click on the days below
         </p>
-    </div>
 
-      <p className="read-the-docs">
-        Click on the days below
-      </p>
+        <Calendar />
 
-    <Calendar />
+        </div>
 
-    </div>
-    
-    <footer>
-      <p>footer</p>
-    </footer>
+        <div className="column column2">
+
+
+        </div>
+
+
+      </div>
+
+      <footer>
+        <p>footer</p>
+      </footer>
     </>
 
   )
