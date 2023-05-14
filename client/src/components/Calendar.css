@@ -1,20 +1,20 @@
 .calendar__button {
-    height: 200%;
-    width: calc(100%/7);
-    text-align: center;
-  }
+  height: 200%;
+  width: calc(100%/7);
+  text-align: center;
+}
 
 .calendar__row {
-    display: flex;
-    align-items: left;
-  }
+  display: flex;
+  align-items: left;
+}
 
-  .calendar__day{
-    height: 200%;
-    width: 14.286%;
-    text-align: center;
-  }
+.calendar__day {
+  height: 200%;
+  width: 14.286%;
+  text-align: center;
+}
 
-  .calendar{
-    max-width: 500px;
-  }
+.calendar {
+  max-width: 500px;
+}

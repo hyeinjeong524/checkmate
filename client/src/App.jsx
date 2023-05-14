@@ -14,7 +14,7 @@ function App() {
       </a>
       
     </header>
-      <p>환경변수 쓰기 - client: { process.env.TEST }</p>
+      <p>환경변수 쓰기 - client:</p>
       <div>
         <a href="https://sparcs.org" target="_blank" rel="noreferrer">
           <img src={sparcsLogo} className="logo" alt="Vite logo" />
