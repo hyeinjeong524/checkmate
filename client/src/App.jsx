@@ -6,41 +6,43 @@ import Calendar from './components/Calendar.jsx'
 function App() {
   const [count, setCount] = useState(0)
 
-  return (
+  return (  
     <>
     <header>
-      <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+
+      <h1>
+        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
           <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
       </a>
-      
+      <span className="title">Checkmate</span>
+      </h1>
+
     </header>
-      <p>환경변수 쓰기 - client:</p>
-      <div>
-        <a href="https://sparcs.org" target="_blank" rel="noreferrer">
-          <img src={sparcsLogo} className="logo" alt="Vite logo" />
-        </a>
-        
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+
+    <div className="wrapper">
+    <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        {/* <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p> */}
+
         <p>
           hehe
         </p>
-      </div>
+    </div>
+
       <p className="read-the-docs">
         Click on the days below
       </p>
+
     <Calendar />
+
+    </div>
+    
     <footer>
       <p>footer</p>
     </footer>
     </>
+
   )
 }
 
