@@ -1,6 +1,4 @@
-import React from 'react';
 import './Calendar.css'
-
 
 function Calendar() {
   const daysInMonth = 31; // Total number of days in the month
@@ -17,16 +15,16 @@ function Calendar() {
 
 
     const weekDaysRow = weekDays.map((day, index) => (
-        <div key={index} className="calendar__day">{day}</div>
+      <div key={index} className="calendar__day">{day}</div>
     ));
 
     rows.push(
-        <div key={-1} className="calendar__row">
-          {weekDaysRow}
-        </div>
-      );
+      <div key={-1} className="calendar__row">
+        {weekDaysRow}
+      </div>
+    );
 
-      
+
     for (let i = 0; i < days.length; i += 7) {
 
       const daysRow = days.slice(i, i + 7).map((day) => (
@@ -40,7 +38,7 @@ function Calendar() {
           {daysRow}
         </div>
       );
-    
+
     }
 
     return rows;
