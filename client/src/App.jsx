@@ -2,41 +2,43 @@ import { useState } from 'react'
 import sparcsLogo from './assets/sparcs.svg'
 import './App.css'
 import Calendar from './components/Calendar.jsx'
+import Saying from './components/saying'
+import Lists from './components/Lists'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <header>
+        <header>
 
-        <h1>
-          <a href="https://sparcs.org" target="_blank" rel="noreferrer">
-            <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
-          </a>
-          <span className="title">Checkmate</span>
-        </h1>
+          <h1>
+            <a href="https://sparcs.org" target="_blank" rel="noreferrer">
+              <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
+            </a>
+            <span className="title">Checkmate</span>
+          </h1>
 
-      </header>
+        </header>
 
-      <div className="wrapper">
-        <div className="column column1">
+        <div className="wrapper">
+          <div className="column column1">
 
-        <p className="read-the-docs">
-          Click on the days below
-        </p>
+            <p className="instruction">
+              Click on the days below
+            </p>
 
-        <Calendar />
+            <Calendar />
+            <Saying />
+
+          </div>
+
+          <div className="column column2">
+            <Lists />
+          </div>
+
 
         </div>
-
-        <div className="column column2">
-
-
-        </div>
-
-
-      </div>
 
       <footer>
         <p>footer</p>
