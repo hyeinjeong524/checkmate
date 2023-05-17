@@ -11,7 +11,7 @@
 
 .calendar__day {
   height: 200%;
-  width: 14.286%;
+  width: calc(100%/7);
   text-align: center;
 }
 

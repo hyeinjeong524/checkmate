@@ -10,6 +10,7 @@ function App() {
 
   return (
     <>
+    <div className='App'>
         <header>
 
           <h1>
@@ -43,6 +44,7 @@ function App() {
       <footer>
         <p>footer</p>
       </footer>
+      </div>
     </>
 
   )
