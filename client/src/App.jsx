@@ -46,7 +46,7 @@ function App() {
         </div>
 
       <footer>
-        <p>© 2023 정혜인 / Special thanks to SPARCS⚡ and @j824h</p>
+        <p>© 2023 정혜인 / Special thanks to SPARCS⚡ and <a href="https://github.com/j824h" rel="noreferrer" target="_blank">@j824h</a></p>
       </footer>
       </div>
     </>

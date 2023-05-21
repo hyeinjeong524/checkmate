@@ -1,6 +1,7 @@
 import "./saying.css"
 
 function Saying(props) {
+    //https://council.busan.go.kr/council/freeboard/52658
     const textItems=[
     "산다는것 그것은 치열한 전투이다. -로망로랑",
     "화가 날 때는 100까지 세라. 최악일 때는 욕설을 퍼부어라. -마크 트웨인",
