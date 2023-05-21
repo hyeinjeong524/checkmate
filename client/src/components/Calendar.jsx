@@ -1,13 +1,8 @@
 import './Calendar.css'
 
-function Calendar() {
+function Calendar(props) {
   const daysInMonth = 31; // Total number of days in the month
   const days = Array.from({ length: daysInMonth }, (_, index) => index + 1); // Array of day numbers
-
-  const handleDayClick = (day) => {
-    console.log(`Clicked on day ${day}`);
-    // You can perform any action here based on the clicked day
-  };
 
   const getCalendarRows = () => {
     const rows = [];
@@ -25,13 +20,21 @@ function Calendar() {
     );
 
 
-    for (let i = 0; i < days.length; i += 7) {
-
-      const daysRow = days.slice(i, i + 7).map((day) => (
-        <button key={day} className="calendar__button" onClick={() => handleDayClick(day)}>
-          {day}
+    for (let i = 1; i <= days.length; i += 7) {
+      const daysRow = [];
+      for (let j=i; j<i+7 && j<=daysInMonth; j++) {
+      
+        const button = <button key={j} className="calendar__button" onClick={(event) => {
+          event.preventDefault();
+          //https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation
+          /* eslint-disable react/prop-types */
+          props.onChangeDay(j);
+          }
+        }>
+          {j}
         </button>
-      ));
+        daysRow.push(button)
+      }
 
       rows.push(
         <div key={i} className="calendar__row">

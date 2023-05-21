@@ -6,7 +6,7 @@ import Saying from './components/saying'
 import Lists from './components/Lists'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentDay, setCurrentDay] = useState(1);
 
   return (
     <>
@@ -29,12 +29,16 @@ function App() {
               Click on the days below
             </p>
 
-            <Calendar />
+            <Calendar onChangeDay={(day)=>{
+              setCurrentDay(day);
+            }
+            }/>
             <Saying />
 
           </div>
 
           <div className="column column2">
+            <h2>6월 {currentDay}일의 할일</h2>
             <Lists />
           </div>
 
