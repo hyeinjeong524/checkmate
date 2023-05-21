@@ -33,12 +33,12 @@ function App() {
               setCurrentDay(day);
             }
             }/>
-            <Saying />
+            <Saying index={currentDay}/>
 
           </div>
 
           <div className="column column2">
-            <h2>6월 {currentDay}일의 할일</h2>
+            <h2>6월 {currentDay}일의 할 일</h2>
             <Lists />
           </div>
 
