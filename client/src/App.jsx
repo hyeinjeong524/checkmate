@@ -29,8 +29,7 @@ function App() {
             <p className="instruction">
               Click on the days below
             </p>
-
-            <Calendar onChangeDay={(day)=>{
+            <Calendar day={currentDay} onChangeDay={(day)=>{
               setCurrentDay(day);
             }
             }/>

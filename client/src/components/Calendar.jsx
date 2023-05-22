@@ -23,16 +23,31 @@ function Calendar(props) {
     for (let i = 1; i <= days.length; i += 7) {
       const daysRow = [];
       for (let j=i; j<i+7 && j<=daysInMonth; j++) {
-      
-        const button = <button key={j} className="calendar__button" onClick={(event) => {
-          event.preventDefault();
-          //https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation
-          /* eslint-disable react/prop-types */
-          props.onChangeDay(j);
-          }
-        }>
-          {j}
-        </button>
+        let button = null;
+        if (props.day === j) {
+          button = <button key={j} className="calendar__button selected"
+          onClick={(event) => {
+            event.preventDefault();
+            //https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation
+            /* eslint-disable react/prop-types */
+            props.onChangeDay(j);
+            }
+          }>
+            {j}
+          </button>
+        }else{
+          button = <button key={j} className="calendar__button"
+          onClick={(event) => {
+            event.preventDefault();
+            //https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation
+            /* eslint-disable react/prop-types */
+            props.onChangeDay(j);
+            }
+          }>
+            {j}
+          </button>
+        }
+        
         daysRow.push(button)
       }
 

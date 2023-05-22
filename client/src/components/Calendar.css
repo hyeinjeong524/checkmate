@@ -34,6 +34,8 @@ button:hover {
   border-color: #646cff;
 }
 button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus-visible,
+.calendar__button.selected {
+  outline: 4px auto orange;
 }
+/* -webkit-focus-ring-color */
