@@ -1,0 +1,38 @@
+.inputBox{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.inputButton{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.todoItem {
+    border: solid 1px #ccc;
+    border-radius: 15px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    font-size:18px;
+}
+
+
+.deleteItem{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.deleteItem:hover {
+    font-weight: bold;
+    cursor: pointer;
+}

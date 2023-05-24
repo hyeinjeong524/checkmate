@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { APIBase } from "../assets/api";
+import "./RightSide.css";
 
 interface IAPIResponse  { _id: string, content: string, done: Boolean }
 
@@ -59,9 +60,10 @@ const RightSide = (props) => {
 
       <div className="list">
         { LAPIResponse.map( (val, i) =>
-          <div key={i} className={"feed-item"}>
-            <div className={"delete-item"} onClick={(e) => deletePost(`${val._id}`)}>ⓧ</div>
-            <p className={"feed-body"}>{ val.content }</p>
+          <div key={i} className="todoItem">
+            <div className="todoContent">{ val.content }</div>
+            <div className="deleteItem" onClick={(e) => deletePost(`${val._id}`)}>🗑️</div>
+            
           </div>
         ) }
       </div>
