@@ -1,12 +1,12 @@
-const express = require('express');
-const dayModels = require('./dayModels');
+import express from "express";
+import { dayModels } from "./dayModels.js";  
 
 const router = express.Router();
 
 class DaysDB {
     static _inst_;
     static getInst = () => {
-        if (!DaysDB._inst_) DaysDB._inst_ = new DayDB();
+        if (!DaysDB._inst_) DaysDB._inst_ = new DaysDB();
         return DaysDB._inst_;
     }
 
@@ -60,7 +60,7 @@ class DaysDB {
 
 const daysDBInst = DaysDB.getInst();
 
-router.get('/getDay', async (req, res) => {
+router.get(`/getDay/:dayNum`, async (req, res) => {
     try {
         const dayNum = parseInt(req.params.dayNum);
         const dbRes = await daysDBInst.readItems(dayNum);
@@ -75,7 +75,7 @@ router.get('/getDay', async (req, res) => {
 });
 
 
-router.put('/updateItemDone', async (req, res) => {
+router.put('/updateItemDone/:dayNum', async (req, res) => {
     try {
         const dayNum = parseInt(req.params.dayNum);
         const id = req.body.id;
@@ -92,7 +92,7 @@ router.put('/updateItemDone', async (req, res) => {
     }
 });
 
-router.post('/createItem', async (req, res) => {
+router.post('/createItem/:dayNum', async (req, res) => {
     try {
         const dayNum = parseInt(req.params.dayNum);
         const { done, content } = req.body;
@@ -108,7 +108,7 @@ router.post('/createItem', async (req, res) => {
     }
 });
 
-router.delete('/deleteItem', async (req, res) => {
+router.delete('/deleteItem/:dayNum/:id', async (req, res) => {
     try {
         const dayNum = parseInt(req.params.dayNum);
         const id = req.params.id;
@@ -124,6 +124,4 @@ router.delete('/deleteItem', async (req, res) => {
     }
 });
 
-module.exports = router;
-
-
+export default router;
