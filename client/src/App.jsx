@@ -3,8 +3,9 @@ import sparcsLogo from './assets/sparcs.svg'
 import './App.css'
 import Calendar from './components/Calendar.jsx'
 import Saying from './components/saying'
-import Lists from './components/Lists'
-import Input from './components/Input' 
+// import Lists from './components/Lists'
+// import Input from './components/Input'
+import RightSide from './components/RightSide'  
 
 function App() {
   const [currentDay, setCurrentDay] = useState(1);
@@ -40,9 +41,10 @@ function App() {
           <div className="column column2">
             <h2>6월 {currentDay}일의 할 일</h2>
         
-            <Input />
+            {/* <Input /> */}
             <p></p>
-            <Lists />
+            {/* <Lists /> */}
+            <RightSide dayNum={currentDay}/>
           </div>
 
 

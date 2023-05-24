@@ -24,6 +24,7 @@ function Calendar(props) {
       const daysRow = [];
       for (let j=i; j<i+7 && j<=daysInMonth; j++) {
         let button = null;
+        /* eslint-disable react/prop-types */
         if (props.day === j) {
           button = <button key={j} className="calendar__button selected"
           onClick={(event) => {
