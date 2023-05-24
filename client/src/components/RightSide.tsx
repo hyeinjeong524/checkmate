@@ -40,7 +40,7 @@ const RightSide = (props) => {
 
   const editPost = (_id: string, _done:Boolean) => {
     const asyncFun = async () => {
-        await axios.put(`${APIBase}/updateItemDone/${dayNum}`, {id: _id, done: _done});
+      await axios.put(`${APIBase}/updateItemDone/${dayNum}`, {id: _id, nextDone: _done});
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));
   }
