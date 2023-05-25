@@ -57,10 +57,16 @@ const RightSide = (props) => {
     <div className="Feed">
     
       <div className="input">
-            <input className="inputBox" type="text" value={SNewPostContent} placeholder="할 일을 입력하세요."
+            <input className="inputBox" type="text" value={SNewPostContent} placeholder="할 일을 입력하세요." required
             onChange={(e)=>setSNewPostContent(e.target.value)} />
             &nbsp;&nbsp;
-            <button className="inputButton" onClick={(event)=>createNewPost()}>추가</button>
+            <button className="inputButton" onClick={(event)=>{
+              if (SNewPostContent!==""){
+                createNewPost()
+              }else{
+                alert("할 일을 입력하세요!")
+              }
+              }}>추가</button>
       </div>
 
       <div className="list">
