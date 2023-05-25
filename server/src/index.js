@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import dayRoute from "./dayRoute.js";
 import mongoose from "mongoose";
+import userRoute from "./userRoute.js";
 
 /* DO NOT REMOVE */
 /* Configure Environment Variables */
@@ -35,14 +36,18 @@ app.use(cors(corsOptions));
 app.use(dayRoute);
 app.use("/api", dayRoute);
 
+app.use(userRoute);
+app.use("/api", userRoute);
+
 app.get("/", (req, res) => {
 	res.send("Hello, World!");
 });
 
 // Connect to MongoDB
 const OMongooseOption = { useNewUrlParser: true, useUnifiedTopology: true };
+
 mongoose.connect(process.env.MONGO_URI, OMongooseOption).then(
-    () => { console.log("[Mongoose] Connection Complete!") },
+    () => { console.log("[Mongoose-data] Connection Complete!") },
     (err) => { console.log(`[Mongoose] Connection Error: ${ err }`) }
 );
 
