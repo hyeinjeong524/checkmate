@@ -3,14 +3,13 @@ import sparcsLogo from './assets/sparcs.svg'
 import './App.css'
 import Calendar from './components/Calendar.jsx'
 import Saying from './components/saying'
-// import Lists from './components/Lists'
-// import Input from './components/Input'
 import RightSide from './components/RightSide'  
 
 function App() {
   const [currentDay, setCurrentDay] = useState(1);
 
-  return (
+  return (//헤더 분리해서 로그인 칸이랑 버튼 만들고 app에 state 추가해야함 (로그인된 계정이름)
+  //또 not signed in이면 추가 안되게 alert보내야함
     <>
     <div className='App'>
         <header>
@@ -40,13 +39,10 @@ function App() {
 
           <div className="column column2">
             <h2>6월 {currentDay}일의 할 일</h2>
-        
-            {/* <Input /> */}
-            <p></p>
-            {/* <Lists /> */}
+              <p></p>
+           
             <RightSide dayNum={currentDay}/>
           </div>
-
 
         </div>
 
