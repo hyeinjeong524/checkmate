@@ -12,9 +12,10 @@ class DaysDB {
 
     constructor() { console.log("[Days-DB] DB Init Completed"); }
 
-    readItems = async (dayNum) => {
+    readItems = async (dayNum, userID) => {
         try {
-            const res = await dayModels[dayNum].find().sort({ 'createdAt': -1 }).exec();
+            const res = await dayModels[dayNum].find({ userID }).sort({ 'createdAt': -1 }).exec();
+
             return { success: true, data: res };
         } catch (e) {
             console.log(`[Days-DB] Read Error: ${e}`);
@@ -22,21 +23,20 @@ class DaysDB {
         }
     }
 
-    updateItemDone = async (id, nextDone, dayNum) => {
+    updateItemDone = async (id, nextDone, dayNum, userID) => {
         try {
-            const res = await dayModels[dayNum].updateOne({ _id: id }, { done: nextDone })
+            const res = await dayModels[dayNum].updateOne({ _id: id }, { done: nextDone });
             return true;
         } catch (e) {
-            console.log(`[Days-DB] Edit Error: ${e}`);
             return { success: false, data: `DB Error - ${e}` };
         }
 
     }
 
     addItem = async (item, dayNum) => {
-        const { done, content } = item;
+        const { done, content, userID } = item;
         try {
-            const newItem = new dayModels[dayNum]({ done, content });
+            const newItem = new dayModels[dayNum]({ done, content, userID });
             const res = await newItem.save();
             return true;
         } catch (e) {
@@ -60,11 +60,13 @@ class DaysDB {
 
 const daysDBInst = DaysDB.getInst();
 
-router.get(`/getDay/:dayNum`, async (req, res) => {
+router.get(`/getDay/:dayNum/:userID`, async (req, res) => {
     console.log(`GET /getDay/${req.params.dayNum}`);
     try {
         const dayNum = parseInt(req.params.dayNum);
-        const dbRes = await daysDBInst.readItems(dayNum);
+        const userID = req.params.userID;
+        const dbRes = await daysDBInst.readItems(dayNum-1, userID);
+        
         if (dbRes.success) {
             return res.status(200).json(dbRes.data);
         } else {
@@ -74,7 +76,8 @@ router.get(`/getDay/:dayNum`, async (req, res) => {
         return res.status(500).json({ error: e });
     }
 });
-
+//아래에 다른 루트도 다 id 포함하게 수정해야함
+//아이디 ""면 다 안되게 해버려 --> create만 안되면 된대
 
 router.put('/updateItemDone/:dayNum', async (req, res) => {
     try {
@@ -82,7 +85,7 @@ router.put('/updateItemDone/:dayNum', async (req, res) => {
         const id = req.body.id;
         const nextDone = req.body.nextDone;
 
-        const dbRes = await daysDBInst.updateItemDone(id, nextDone, dayNum);
+        const dbRes = await daysDBInst.updateItemDone(id, nextDone, dayNum-1);
         if (dbRes) {
             return res.status(200).json({ success: true });
         } else {
@@ -93,13 +96,15 @@ router.put('/updateItemDone/:dayNum', async (req, res) => {
     }
 });
 
-router.post('/createItem/:dayNum', async (req, res) => {
+router.post('/createItem/:dayNum/:userID', async (req, res) => {
     try {
         const dayNum = parseInt(req.params.dayNum);
         const { done, content } = req.body;
-
-        const dbRes = await daysDBInst.addItem({ done, content }, dayNum);
+        const userID = req.params.userID;
+            console.log(`userID inside create: ${userID}`);
+        const dbRes = await daysDBInst.addItem({ done, content, userID }, dayNum-1);
         if (dbRes) {
+            console.log(dbRes);
             return res.status(200).json({ success: true });
         } else {
             return res.status(500).json({ success: false, error: 'Failed to create item.' });
@@ -114,7 +119,7 @@ router.delete('/deleteItem/:dayNum/:id', async (req, res) => {
         const dayNum = parseInt(req.params.dayNum);
         const id = req.params.id;
 
-        const dbRes = await daysDBInst.deleteItem(id, dayNum);
+        const dbRes = await daysDBInst.deleteItem(id, dayNum-1);
         if (dbRes) {
             return res.status(200).json({ success: true });
         } else {
