@@ -61,10 +61,12 @@ const RightSide = (props) => {
             onChange={(e)=>setSNewPostContent(e.target.value)} />
             &nbsp;&nbsp;
             <button className="inputButton" onClick={(event)=>{
-              if (SNewPostContent!==""){
+              if (SNewPostContent!=="" && props.loggedIn==true){
                 createNewPost()
-              }else{
+              }else if (SNewPostContent===""){
                 alert("할 일을 입력하세요!")
+              } else if (props.loggedIn==false){
+                alert("로그인 후 이용해주세요.")
               }
               }}>추가</button>
       </div>

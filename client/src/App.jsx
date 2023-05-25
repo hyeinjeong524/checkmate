@@ -7,14 +7,14 @@ import Header from './components/Header'
 
 function App() {
   const [currentDay, setCurrentDay] = useState(1);
-  const [user,setUser] = useState("guest");
+  const [currentUser,setCurrentUser] = useState("Guest");
   const [loggedIn, setLoggedIn] = useState(false);
 
   let message="";
   if (loggedIn===false){
     message=<h3>로그인 후 이용해주세요.</h3>
   }else{
-    message=<h3>{user}님, 오늘은 무엇을 하실 예정인가요?</h3>
+    message=<h3>{currentUser}님, 오늘은 무엇을 하실 예정인가요?</h3>
   }
 
    
@@ -24,7 +24,7 @@ function App() {
     <>
     <div className='App'>
         <Header onLogin={(user)=>{
-          setUser(user);
+          setCurrentUser(user);
           setLoggedIn(true);
         }}/>
 
@@ -43,8 +43,8 @@ function App() {
 
           <div className="column column2">
 
-            <h2>6월 {currentDay}일의 할 일</h2>
-            <RightSide dayNum={currentDay}/>
+            <h2>6월 {currentDay}일의 할 일 ({currentUser})</h2>
+            <RightSide dayNum={currentDay} loggedIn={loggedIn}/>
           </div>
 
         </div>
