@@ -26,6 +26,9 @@ function App() {
         <Header onLogin={(user)=>{
           setCurrentUser(user);
           setLoggedIn(true);
+        }}
+        onChangeDay={(day)=>{
+          setCurrentDay(day);
         }}/>
 
         <div className="wrapper">
@@ -37,7 +40,7 @@ function App() {
               setCurrentDay(day);
             }
             }/>
-            <Saying index={currentDay}/>
+            <Saying index={currentDay} loggedIn={loggedIn}/>
 
           </div>
 

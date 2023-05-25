@@ -38,7 +38,7 @@ const RightSide = (props) => {
   const deletePost = (id: string) => {
     const asyncFun = async () => {
         await axios.delete(`${APIBase}/deleteItem/${dayNum}/${id}`);
-        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}`);
+        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}/${currentUser}`);
         setLAPIResponse(data);
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));
