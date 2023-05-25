@@ -37,7 +37,16 @@ function Saying(props) {
 ]
     /* eslint-disable react/prop-types */
     const index = props.index;
-    let text = textItems[Number(index)-1];
+
+    const loggedIn = props.loggedIn;
+
+    let text = ""
+    if (loggedIn){
+        text = textItems[Number(index)-1];
+    }else{
+        text = "로그인 후 열람 가능합니다. 새 유저라면 아이디와 비밀번호를 입력해주세요."
+    }
+  
 
     return <div className="saying">
         <h2 className="saying-title">
