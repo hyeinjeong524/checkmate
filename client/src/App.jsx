@@ -1,33 +1,35 @@
 import { useState } from 'react'
-import sparcsLogo from './assets/sparcs.svg'
 import './App.css'
 import Calendar from './components/Calendar.jsx'
 import Saying from './components/saying'
 import RightSide from './components/RightSide'  
+import Header from './components/Header'
 
 function App() {
   const [currentDay, setCurrentDay] = useState(1);
+  const [user,setUser] = useState("fdd");
+
+  let message="";
+  if (user ==="guest"){
+    message=<h3>로그인 후 이용해주세요.</h3>
+  }else{
+    message=<h3>{user}님, 오늘은 무엇을 하실 예정인가요?</h3>
+  }
+
+   
 
   return (//헤더 분리해서 로그인 칸이랑 버튼 만들고 app에 state 추가해야함 (로그인된 계정이름)
   //또 not signed in이면 추가 안되게 alert보내야함
     <>
     <div className='App'>
-        <header>
-
-          <h1>
-            <a href="https://sparcs.org" target="_blank" rel="noreferrer">
-              <img src={sparcsLogo} className="logo toplogo" alt="React logo" />
-            </a>
-            <span className="title">Checkmate</span>
-          </h1>
-
-        </header>
+        <Header onLogin={(user)=>{
+          setUser(user)
+        }}/>
 
         <div className="wrapper">
           <div className="column column1">
-
             <p className="instruction">
-              Click on the days below
+              {message}
             </p>
             <Calendar day={currentDay} onChangeDay={(day)=>{
               setCurrentDay(day);
@@ -38,9 +40,8 @@ function App() {
           </div>
 
           <div className="column column2">
+
             <h2>6월 {currentDay}일의 할 일</h2>
-              <p></p>
-           
             <RightSide dayNum={currentDay}/>
           </div>
 

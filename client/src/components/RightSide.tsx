@@ -55,9 +55,7 @@ const RightSide = (props) => {
 
   return (
     <div className="Feed">
-      
-      <h2>Todo</h2>
-
+    
       <div className="input">
             <input className="inputBox" type="text" value={SNewPostContent} placeholder="할 일을 입력하세요."
             onChange={(e)=>setSNewPostContent(e.target.value)} />
