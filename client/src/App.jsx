@@ -44,7 +44,7 @@ function App() {
           <div className="column column2">
 
             <h2>6월 {currentDay}일의 할 일 ({currentUser})</h2>
-            <RightSide dayNum={currentDay} loggedIn={loggedIn}/>
+            <RightSide dayNum={currentDay} loggedIn={loggedIn} currentUser={currentUser}/>
           </div>
 
         </div>

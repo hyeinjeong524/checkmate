@@ -10,11 +10,12 @@ const RightSide = (props) => {
   const [ SNewPostContent, setSNewPostContent ] = React.useState<string>("");
 
     const dayNum = props.dayNum;
+    const currentUser = props.currentUser;
   
   React.useEffect( () => {
     let BComponentExited = false;
     const asyncFun = async () => {
-        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}`);
+        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}/${currentUser}`);
         console.log(data)
         // const data = [ { id: 0, title: "test1", content: "Example body" }, { id: 1, title: "test2", content: "Example body" }, { id: 2, title: "test3", content: "Example body" } ].slice(0, NPostCount);
       if (BComponentExited) return;
@@ -26,9 +27,9 @@ const RightSide = (props) => {
 
   const createNewPost = () => {
     const asyncFun = async () => {
-        await axios.post(`${APIBase}/createItem/${dayNum}`, {content: SNewPostContent, done: false});
+        await axios.post(`${APIBase}/createItem/${dayNum}/${currentUser}`, {content: SNewPostContent, done: false, userID: currentUser});
         setSNewPostContent("");
-        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}`);
+        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}/${currentUser}`);
         setLAPIResponse(data);
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));

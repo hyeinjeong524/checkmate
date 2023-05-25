@@ -8,6 +8,10 @@ const OSchemaDefinition = {
     done: {
         type: Boolean,
         default: false,
+    },
+    userID:{
+        type: String,
+        default: "",
     }
 };
 
