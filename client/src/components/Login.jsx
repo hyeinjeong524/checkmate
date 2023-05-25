@@ -47,7 +47,7 @@ function Login(props) { //get props from App.jsx to set the loggedin and usernam
                     setUsername(event.target.value)
                 }} />
         &nbsp;
-      <input className="passwordBox" type="text" placeholder="비밀번호 입력"
+      <input className="passwordBox" type="password" placeholder="비밀번호 입력"
                 onChange={(event)=>{
                     setPassword(event.target.value)
                 }} />
