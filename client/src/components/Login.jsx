@@ -17,7 +17,7 @@ function Login(props) { //get props from App.jsx to set the loggedin and usernam
           props.onLogin(username);
           props.onChangeDay(1);
         } else {
-          alert("Invalid username or password - if you're new, the id is already occipied");
+          alert("Invalid username or password - if you're new, choose another username.");
         }
       } else {
         const signUpResponse = await axios.post(`${APIBase}/signup`, { username, password });
@@ -30,7 +30,12 @@ function Login(props) { //get props from App.jsx to set the loggedin and usernam
       }
 
     } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 400) {
+          alert("Invalid username or password - If you're new, choose another username.");
+        } else {
+          console.error(error);
+          alert("An error occurred while trying to log in. Please try again.");
+        }
     }
 }
 
