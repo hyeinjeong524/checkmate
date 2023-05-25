@@ -28,6 +28,8 @@ const RightSide = (props) => {
     const asyncFun = async () => {
         await axios.post(`${APIBase}/createItem/${dayNum}`, {content: SNewPostContent, done: false});
         setSNewPostContent("");
+        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}`);
+        setLAPIResponse(data);
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));
   }
@@ -35,6 +37,8 @@ const RightSide = (props) => {
   const deletePost = (id: string) => {
     const asyncFun = async () => {
         await axios.delete(`${APIBase}/deleteItem/${dayNum}/${id}`);
+        const { data } = await axios.get<IAPIResponse[]>(`${APIBase}/getDay/${dayNum}`);
+        setLAPIResponse(data);
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));
   }
@@ -42,9 +46,12 @@ const RightSide = (props) => {
   const editPost = (_id: string, _done:Boolean) => {
     const asyncFun = async () => {
       await axios.put(`${APIBase}/updateItemDone/${dayNum}`, {id: _id, nextDone: _done});
+
     }
     asyncFun().catch(e => window.alert(`AN ERROR OCCURED! ${e}`));
   }
+
+  LAPIResponse
 
   return (
     <div className="Feed">
@@ -61,6 +68,7 @@ const RightSide = (props) => {
       <div className="list">
         { LAPIResponse.map( (val, i) =>
           <div key={i} className="todoItem">
+            <div className="doneItem" onClick={(e)=>editPost(`${val._id}`, true)}>O</div>
             <div className="todoContent">{ val.content }</div>
             <div className="deleteItem" onClick={(e) => deletePost(`${val._id}`)}>🗑️</div>
             
