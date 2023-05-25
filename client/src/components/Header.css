@@ -4,29 +4,5 @@ header{
     justify-content: space-between; */
   }
 
-.loginBox{
-    width: 10em;
-    height: 40px;
-    align-self:right;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    outline: none;
-    box-sizing: border-box;
-    transition: 0.3s;
-}
 
-.loginButton{
-    height: 40px;
-    background-color:orange;
-    color: #000000;
-}
-
-.login{
-    position:absolute;
-    right:15px;
-    top:15px;
-}
 

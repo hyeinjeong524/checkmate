@@ -4,6 +4,7 @@ import Calendar from './components/Calendar.jsx'
 import Saying from './components/saying'
 import RightSide from './components/RightSide'  
 import Header from './components/Header'
+import Login from './components/Login'
 
 function App() {
   const [currentDay, setCurrentDay] = useState(1);
@@ -18,12 +19,11 @@ function App() {
   }
 
    
-
-  return (//헤더 분리해서 로그인 칸이랑 버튼 만들고 app에 state 추가해야함 (로그인된 계정이름)
-  //또 not signed in이면 추가 안되게 alert보내야함
+  return (
     <>
     <div className='App'>
-        <Header onLogin={(user)=>{
+        <Header />
+        <Login onLogin={(user)=>{
           setCurrentUser(user);
           setLoggedIn(true);
         }}

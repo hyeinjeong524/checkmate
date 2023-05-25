@@ -61,7 +61,6 @@ class DaysDB {
 const daysDBInst = DaysDB.getInst();
 
 router.get(`/getDay/:dayNum/:userID`, async (req, res) => {
-    console.log(`GET /getDay/${req.params.dayNum}`);
     try {
         const dayNum = parseInt(req.params.dayNum);
         const userID = req.params.userID;
