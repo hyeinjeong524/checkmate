@@ -19,7 +19,14 @@ const app = express();
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:3000', 'http://192.168.0.183:3000', 'http://localhost:8080', 'http://127.0.0.1:5173'];
+const whitelist = ['http://localhost:3000', 
+'http://192.168.0.183:3000', 
+'http://localhost:8080', 
+'http://127.0.0.1:5173',
+'http://127.0.0.1:5174',
+'http://ssal.sparcs.org:49176/',
+'http://ssal.sparcs.org:49177/',
+];
 
 const corsOptions = {
     origin: function (origin, callback) {
