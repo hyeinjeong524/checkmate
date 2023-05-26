@@ -54,7 +54,10 @@ function App() {
         </div>
 
       <footer>
-        <p>© 2023 정혜인 / Special thanks to SPARCS⚡ and <a href="https://github.com/j824h" rel="noreferrer" target="_blank">@j824h</a></p>
+        <p>© 2023 정혜인 / Special thanks to SPARCS⚡ and 
+          <a href="https://github.com/j824h" rel="noreferrer" target="_blank">@j824h</a> / Quotes from:  
+          <a href="https://council.busan.go.kr/council/freeboard/52658" rel="noreferrer" target="_blank"> ↗</a>
+          </p>
       </footer>
       </div>
     </>
