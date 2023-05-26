@@ -23,7 +23,8 @@ function App() {
     <>
     <div className='App'>
         <Header />
-        <Login onLogin={(user)=>{
+        <Login loggedIn = {loggedIn}
+        onLogin={(user)=>{
           setCurrentUser(user);
           setLoggedIn(true);
         }}
