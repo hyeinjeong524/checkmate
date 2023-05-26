@@ -1,3 +1,3 @@
-const APIBase = "http://localhost:8080";
+const APIBase = import.meta.env.VITE_REACT_APP_API_BASE;
 
 export { APIBase };
