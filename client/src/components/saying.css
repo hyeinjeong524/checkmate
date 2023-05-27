@@ -1,13 +1,27 @@
+
+@font-face {
+    font-family: 'ChosunGs';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+ 
+}
+
 .saying{
-    font-family: 궁서, 돋움, '맑은 고딕', sans-serif;
     text-align: center;
     padding: 3em;
 }
 
-.saying-title{
-
+.logout_saying{
+    text-align: center;
 }
 
-.saying-text{
+.login_saying{
+    font-family: 'ChosunGs', 돋움, '맑은 고딕', sans-serif;
+    text-align: center;
+    font-size: 20px;
+}
 
+.saying-title{
+    text-align: center;
 }

@@ -7,7 +7,7 @@ function Saying(props) {
     "화가 날 때는 100까지 세라. 최악일 때는 욕설을 퍼부어라. -마크 트웨인",
     "Do not reinvent the wheel -Node.js & Express 세미나",
     "내 비장의 무기는 아직 손안에 있다.그것은 희망이다. -나폴레옹",
-    "벽도 나를 사랑하는 것 같아 - 정상, 벽에 기대며",    
+    "이 넘치는 돈을 어떻게 해결할지에 대해 논의를 해 봐야 해요. - 정상",    
     "하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다. -사무엘존슨",
     "휴학하고 스팍스만 하고 싶다 - 황인준",
     "진정으로 웃으려면 고통을 참아야하며, 나아가 고통을 즐길 줄 알아야 해. -찰리 채플린",
@@ -40,11 +40,14 @@ function Saying(props) {
 
     const loggedIn = props.loggedIn;
 
-    let text = "" 
+    let text = "";
+    let sayingp = "";
     if (loggedIn){
         text = textItems[Number(index)-1];
+        sayingp = <p className="login_saying">{text}</p>
     }else{
         text = "로그인 후 열람 가능합니다. 새 유저라면 새 아이디와 비밀번호를 입력해 가입해주세요."
+        sayingp = <p className="logout_saying">{text}</p>
     }
   
 
@@ -52,7 +55,7 @@ function Saying(props) {
         <h2 className="saying-title">
             오늘의 명언
         </h2>
-        <p className="saying-text">{text}</p>
+        {sayingp}
     </div>;
 }
 
