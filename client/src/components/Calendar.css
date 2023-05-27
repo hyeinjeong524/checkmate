@@ -2,6 +2,8 @@
   height: 200%;
   width: calc(100%/7);
   text-align: center;
+  color:white;
+  background-color: #1a1a1a;
 }
 
 .calendar__row {
@@ -29,6 +31,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  
 }
 button:hover {
   border-color: #646cff;
