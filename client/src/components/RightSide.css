@@ -1,4 +1,4 @@
-.inputBox{
+.inputBox {
     width: 80%;
     height: 40px;
     border-radius: 5px;
@@ -11,30 +11,61 @@
     transition: 0.3s;
 }
 
-.inputButton{
+.inputButton {
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: orange;
-    color:black;
+    color: black;
 }
 
 .todoItem {
-    border: solid 1px #ccc;
+
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: 0.3fr 6fr 0.3fr;
+    border: 1px solid lightgrey;
+    z-index: 1;
+    overflow: scroll;
+    width: 90%;
     border-radius: 15px;
-    width: 100%;
     margin: 10px 0;
-    position: relative;
-    font-size:18px;
-}
-
-
-.deleteItem{
-    position: absolute;
-    right: 15px;
-    top: 10px;
 }
 
 .deleteItem:hover {
     font-weight: bold;
     cursor: pointer;
+}
+
+
+.listBox {
+    height: 60vh;
+    overflow: scroll;
+    /* padding-top: 50px; */
+}
+
+
+.yetButton,
+.doneButton {
+    padding: 7px;
+    text-align: center;
+    font-size: x-large
+}
+
+.deleteItem {
+    /* position: absolute;
+    right: 15px; */
+    padding: 12px;
+    text-align: center;
+    font-size: x-large
+}
+
+.yetContent {
+    padding: 13px;
+}
+
+.doneContent {
+    padding: 13px;
+    color: gray;
+    /* text-decoration: line-through; */
+
 }
